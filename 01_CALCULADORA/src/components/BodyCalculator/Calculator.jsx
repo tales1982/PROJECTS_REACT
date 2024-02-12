@@ -1,6 +1,5 @@
-// Calculator.jsx
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 import {
   CalculatorStyles,
   Container,
@@ -12,6 +11,8 @@ import {
 import Buttons from "../Botoes";
 
 const Calculator = () => {
+  const [butaoValor, setButaoValor] = useState("");
+
   return (
     <Container>
       <Title>CALCULADORA</Title>
@@ -22,39 +23,46 @@ const Calculator = () => {
         <DisplayResult>resultado000000</DisplayResult>
         <div>
           <div>
-            <Buttons number={'AC'}/>
-            <Buttons number={'('} />
-            <Buttons number={')'} />
-            <Buttons number={'mod'} />
-            <Buttons number={'n'} />
+            <Buttons onClick={() => console.log("Clicou")} number={"AC"} />
+            <Buttons onClick={() => console.log("Clicou")} number={"("} />
+            <Buttons onClick={() => console.log("Clicou")} number={")"} />
+            <Buttons onClick={() => console.log("Clicou")} number={"mod"} />
+            <Buttons onClick={() => console.log("Clicou")} number={"n"} />
           </div>
           <div>
-            <Buttons number={7} />
-            <Buttons number={8} />
-            <Buttons number={9} />
-            <Buttons number={'div'} />
-            <Buttons number={'rais'} />
+            <Buttons onClick={() => console.log("Clicou")} number={7} />
+            <Buttons onClick={() => console.log("Clicou")} number={8} />
+            <Buttons onClick={() => console.log("Clicou")} number={9} />
+            <Buttons onClick={() => console.log("Clicou")} number={"div"} />
+            <Buttons onClick={() => console.log("Clicou")} number={"rais"} />
           </div>
           <div>
-            <Buttons number={4} />
-            <Buttons number={5} />
-            <Buttons number={6} />
-            <Buttons number={'x'} />
-            <Buttons number={'x²'} />
+            <Buttons onClick={() => console.log("Clicou")} number={4} />
+            <Buttons onClick={() => console.log("Clicou")} number={5} />
+            <Buttons onClick={() => console.log("Clicou")} number={6} />
+            <Buttons onClick={() => console.log("Clicou")} number={'x'} />
+            <Buttons
+              onClick={() => console.log("Clicou")}
+              number={"x²"}
+            />
           </div>
           <div>
-            <Buttons number={1} />
-            <Buttons number={2} />
-            <Buttons number={3} />
-            <Buttons number={'-'} />
-             <Buttons number={'+'} />
+            <Buttons onClick={() => console.log("Clicou")} number={1} />
+            <Buttons onClick={() => console.log("Clicou")} number={2} />
+            <Buttons onClick={() => console.log("Clicou")} number={3} />
+            <Buttons onClick={() => console.log("Clicou")} number={"-"} />
+            <Buttons onClick={() => console.log("Clicou")} number={"+"} />
           </div>
           <div>
-          <Buttons number={0} />
-            <Buttons number={','} />
-            <Buttons number={'%'} />
-           
-           <Buttons number={'='} style={{width: '145px'}} />
+            <Buttons onClick={() => console.log("Clicou")} number={0} />
+            <Buttons onClick={() => console.log("Clicou")} number={","} />
+            <Buttons onClick={() => console.log('%')} number={"%"} />
+
+            <Buttons
+              onClick={() => console.log("Clicou")}
+              number={"="}
+              style={{ width: "145px" }}
+            />
           </div>
         </div>
       </CalculatorStyles>
