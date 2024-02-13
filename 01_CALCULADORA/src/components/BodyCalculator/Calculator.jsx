@@ -9,9 +9,19 @@ import {
   DisplayInput,
 } from "./styles";
 import Buttons from "../Botoes";
+import theme from "../../styles/Variables/Variables";
 
 const Calculator = () => {
   const [butaoValor, setButaoValor] = useState("");
+
+  const handleButtonClick = (value) => {
+    setButaoValor((prevValue) => {
+      const newValue = prevValue + value.toString();
+      console.log("Valor atual:", newValue); // Adiciona este console.log para verificar os valores
+      return newValue;
+    });
+  };
+
 
   return (
     <Container>
@@ -23,45 +33,48 @@ const Calculator = () => {
         <DisplayResult>resultado000000</DisplayResult>
         <div>
           <div>
-            <Buttons onClick={() => console.log("Clicou")} number={"AC"} />
-            <Buttons onClick={() => console.log("Clicou")} number={"("} />
-            <Buttons onClick={() => console.log("Clicou")} number={")"} />
-            <Buttons onClick={() => console.log("Clicou")} number={"mod"} />
-            <Buttons onClick={() => console.log("Clicou")} number={"n"} />
+            <Buttons onClick={() => handleButtonClick("AC")} number={"AC"} />
+            <Buttons onClick={() => handleButtonClick("(")} number={"("} />
+            <Buttons onClick={() => handleButtonClick(")")} number={")"} />
+            <Buttons onClick={() => handleButtonClick("mod")} number={"mod"} />
+            <Buttons onClick={() => handleButtonClick("n")} number={"n"} />
           </div>
           <div>
-            <Buttons onClick={() => console.log("Clicou")} number={7} />
-            <Buttons onClick={() => console.log("Clicou")} number={8} />
-            <Buttons onClick={() => console.log("Clicou")} number={9} />
-            <Buttons onClick={() => console.log("Clicou")} number={"div"} />
-            <Buttons onClick={() => console.log("Clicou")} number={"rais"} />
-          </div>
-          <div>
-            <Buttons onClick={() => console.log("Clicou")} number={4} />
-            <Buttons onClick={() => console.log("Clicou")} number={5} />
-            <Buttons onClick={() => console.log("Clicou")} number={6} />
-            <Buttons onClick={() => console.log("Clicou")} number={'x'} />
+            <Buttons onClick={() => handleButtonClick("7")} number={7} />
+            <Buttons onClick={() => handleButtonClick("8")} number={8} />
+            <Buttons onClick={() => handleButtonClick("9")} number={9} />
+            <Buttons onClick={() => handleButtonClick("div")} number={"div"} />
             <Buttons
-              onClick={() => console.log("Clicou")}
-              number={"x²"}
+              onClick={() => handleButtonClick("rais")}
+              number={"rais"}
             />
           </div>
           <div>
-            <Buttons onClick={() => console.log("Clicou")} number={1} />
-            <Buttons onClick={() => console.log("Clicou")} number={2} />
-            <Buttons onClick={() => console.log("Clicou")} number={3} />
-            <Buttons onClick={() => console.log("Clicou")} number={"-"} />
-            <Buttons onClick={() => console.log("Clicou")} number={"+"} />
+            <Buttons onClick={() => handleButtonClick("4")} number={4} />
+            <Buttons onClick={() => handleButtonClick("5")} number={5} />
+            <Buttons onClick={() => handleButtonClick("6")} number={6} />
+            <Buttons onClick={() => handleButtonClick("x")} number={"x"} />
+            <Buttons onClick={() => handleButtonClick(" ")} number={"x²"} />
           </div>
           <div>
-            <Buttons onClick={() => console.log("Clicou")} number={0} />
-            <Buttons onClick={() => console.log("Clicou")} number={","} />
-            <Buttons onClick={() => console.log('%')} number={"%"} />
+            <Buttons onClick={() => handleButtonClick("1")} number={1} />
+            <Buttons onClick={() => handleButtonClick("2")} number={2} />
+            <Buttons onClick={() => handleButtonClick("3")} number={3} />
+            <Buttons onClick={() => handleButtonClick("-")} number={"-"} />
+            <Buttons onClick={() => handleButtonClick("+")} number={"+"} />
+          </div>
+          <div>
+            <Buttons onClick={() => handleButtonClick("0")} number={0} />
+            <Buttons onClick={() => handleButtonClick(",")} number={","} />
+            <Buttons onClick={() => handleButtonClick("%")} number={"%"} />
 
             <Buttons
-              onClick={() => console.log("Clicou")}
+              onClick={() => handleButtonClick("=")}
               number={"="}
-              style={{ width: "145px" }}
+              style={{
+                width: "145px",
+                backgroundColor: `${theme.colors.greenButton}`,
+              }}
             />
           </div>
         </div>

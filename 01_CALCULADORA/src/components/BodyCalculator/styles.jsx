@@ -1,6 +1,6 @@
 // CalculatorStyles.jsx
 import styled from "styled-components";
-import theme from "../../styles/Variables/VAriables";
+import theme from "../../styles/Variables/Variables";
 
 export const Title = styled.h1``;
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../styles/Variables/VAriables";
+import theme from "../../styles/Variables/Variables";
 
 export const Button = styled.button`
   margin: 3px;
