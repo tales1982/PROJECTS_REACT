@@ -11,49 +11,61 @@ export const Container = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${theme.colors.bluePrimary};
+  background: linear-gradient(
+    to bottom right,
+    ${theme.colors.roxoEscuro},
+    ${theme.colors.roxoClaro}
+  );
 `;
 
-export const CalculatorStyles = styled.div`
+export const CorpoCalculadora = styled.div`
+  height: 550px;
+  width: 300px;
+  border: 4px solid white;
+  border-radius: 20px;
+  overflow: hidden;
+`;
+
+export const Display = styled.div`
+  width: 300px;
+  height: 180px;
+  background-color: ${theme.colors.dispay};
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: red;
+  color: #fff;
+  text-align: end;
+`;
+
+export const Operacao = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  height: 100%;
+  padding-right: 10px;
+  font-size: 20px;
+`;
+
+export const Caculo = styled.span`
+  font-size: 28px;
+  margin-top: 30px;
+`
+
+export const Resultado = styled.span`
+  font-size: 43px;
+  overflow: hidden;
+`
+export const Teclado = styled.div`
+  width: 300px;
+
+`
+
+export const DivButao = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 400px;
-  height: 550px;
-  background-color: ${theme.colors.blueDark};
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px 2px black;
-`;
-export const Display = styled.div`
+`
+
+export const DivRow = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 380px;
-  background-color: ${theme.colors.lightGrayBackground};
-  margin-top: 15px;
-  border-radius: 8px;
-`;
-
-export const DisplayResult = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  width: 380px;
-  background-color: ${theme.colors.lightGrayBackground};
-  margin-top: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-`;
-
-export const DisplayInput = styled.input`
-  width: 380px;
-  height: 50px;
-  border-radius: 8px;
-  font-size: 30px;
-  text-align: end;
-  font-weight: 700;
 `

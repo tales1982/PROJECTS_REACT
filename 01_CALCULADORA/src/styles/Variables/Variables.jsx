@@ -19,6 +19,12 @@ const theme = {
       // Fundo da Calculadora
       white: "#ffffff",
       lightGrayBackground: "#ecf0f1",
+
+      roxoEscuro: "#41124c",
+      roxoClaro: "#9c4fad",
+      botaoRoxo: "#C45BDC",
+      botaoEscuro: "#2f3646",
+      dispay: "#2a2e37",
     },
   };
   

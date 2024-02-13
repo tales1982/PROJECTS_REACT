@@ -1,15 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import PropTypes from "prop-types";
-import { Button } from "./styles";
+import { ButtonStyled } from "./styles";
 
-const Buttons = ({ number, style, onClick }) => {
-  return <Button style={style} onClick={() => onClick(number)}>{number}</Button>;
+// eslint-disable-next-line react/prop-types
+const Button = ({ valor, styles }) => {
+  return <ButtonStyled style={styles}>{valor}</ButtonStyled>;
 };
 
-Buttons.propTypes = {
-  onClick: PropTypes.func, // Correção aqui
-  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  style: PropTypes.object,
-};
-
-export default Buttons;
+export default Button;
