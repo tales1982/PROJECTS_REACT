@@ -1,7 +1,6 @@
 // /src/components/Calculator.js
 // eslint-disable-next-line no-unused-vars
-import React from "react";
-
+import React, { useState } from "react";
 import {
   Container,
   CorpoCalculadora,
@@ -17,65 +16,139 @@ import Button from "../Botoes";
 import theme from "../../styles/Variables/Variables";
 
 const Calculator = () => {
+  const [valorCapturado, setValorCapturado] = useState("");
+  const teste = 10;//Para testa
+  const atualizarValorCapturado = (valor) => {
+    setValorCapturado((prevCapturado) => prevCapturado + valor);
+   
+  };
+ console.log(Number(valorCapturado) + teste);
+
   return (
     <Container>
       <CorpoCalculadora>
         <Display>
           <Operacao>
-            <Resultado>{"12345678910"}</Resultado>
-            <Caculo>{"4 + 4 + 4 + 4 + 4"}</Caculo>
+            <Resultado>{'123456789'}</Resultado>
+
+            <Caculo>{valorCapturado}</Caculo>
           </Operacao>
         </Display>
         <Teclado>
           <div>
-            <Button
-              styles={{ color: theme.colors.botaoRoxo }}
-              valor={"AC"}
-              style
-            />
+            <Button valor={"AC"} atualizarValor={atualizarValorCapturado} />
             <Button
               styles={{ color: theme.colors.botaoRoxo }}
               valor={`\u00F7`}
+              atualizarValor={atualizarValorCapturado}
             />
-            <Button styles={{ color: theme.colors.botaoRoxo }} valor={"X"} />
+            <Button valor={"X"} atualizarValor={atualizarValorCapturado} />
             <Button
               styles={{
                 color: theme.colors.white,
                 backgroundColor: theme.colors.botaoRoxo,
               }}
               valor={" ⇐"}
+              atualizarValor={atualizarValorCapturado}
             />
           </div>
           <div>
-            <Button styles={{ color: theme.colors.white }} valor={"7"} />
-            <Button styles={{ color: theme.colors.white }} valor={"8"} />
-            <Button styles={{ color: theme.colors.white }} valor={"9"} />
-            <Button styles={{ color: theme.colors.white,
-                backgroundColor: theme.colors.botaoRoxo }} valor={"-"} />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"7"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"8"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"9"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{
+                color: theme.colors.white,
+                backgroundColor: theme.colors.botaoRoxo,
+              }}
+              valor={"-"}
+              atualizarValor={atualizarValorCapturado}
+            />
           </div>
           <div>
-            <Button styles={{ color: theme.colors.white }} valor={"4"} />
-            <Button styles={{ color: theme.colors.white }} valor={"5"} />
-            <Button styles={{ color: theme.colors.white }} valor={"6"} />
-            <Button styles={{ color: theme.colors.white,
-                backgroundColor: theme.colors.botaoRoxo }} valor={"+"} />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"4"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"5"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{ color: theme.colors.white }}
+              valor={"6"}
+              atualizarValor={atualizarValorCapturado}
+            />
+            <Button
+              styles={{
+                color: theme.colors.white,
+                backgroundColor: theme.colors.botaoRoxo,
+              }}
+              valor={"+"}
+              atualizarValor={atualizarValorCapturado}
+            />
           </div>
           <DivRow>
             <DivButao>
               <div>
-                <Button styles={{ color: theme.colors.white }} valor={"1"} />
-                <Button styles={{ color: theme.colors.white }} valor={"2"} />
-                <Button styles={{ color: theme.colors.white }} valor={"3"} />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"1"}
+                  atualizarValor={atualizarValorCapturado}
+                />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"2"}
+                  atualizarValor={atualizarValorCapturado}
+                />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"3"}
+                  atualizarValor={atualizarValorCapturado}
+                />
               </div>
               <div>
-                <Button styles={{ color: theme.colors.white }} valor={"0"} />
-                <Button styles={{ color: theme.colors.white }} valor={"."} />
-                <Button styles={{ color: theme.colors.white }} valor={"%"} />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"0"}
+                  atualizarValor={atualizarValorCapturado}
+                />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"."}
+                  atualizarValor={atualizarValorCapturado}
+                />
+                <Button
+                  styles={{ color: theme.colors.white }}
+                  valor={"%"}
+                  atualizarValor={atualizarValorCapturado}
+                />
               </div>
             </DivButao>
             <div>
-              <Button styles={{ color: theme.colors.white, height: '150px',
-                backgroundColor: theme.colors.botaoRoxo }} valor={"="} />
+              <Button
+                styles={{
+                  color: theme.colors.white,
+                  height: "150px",
+                  backgroundColor: theme.colors.botaoRoxo,
+                }}
+                valor={"="}
+                atualizarValor={atualizarValorCapturado}
+              />
             </div>
           </DivRow>
         </Teclado>

@@ -1,10 +1,20 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+// /src/components/Button.js
+import PropTypes from "prop-types"; // Importe o PropTypes
 import { ButtonStyled } from "./styles";
 
-// eslint-disable-next-line react/prop-types
-const Button = ({ valor, styles }) => {
-  return <ButtonStyled style={styles}>{valor}</ButtonStyled>;
+const Button = ({ valor, styles, atualizarValor }) => {
+  return (
+    <ButtonStyled style={styles} onClick={() => atualizarValor(valor)}>
+      {valor}
+    </ButtonStyled>
+  );
+};
+
+// Adicione a validação de tipo para as propriedades
+Button.propTypes = {
+  valor: PropTypes.string.isRequired,
+  styles: PropTypes.object,
+  atualizarValor: PropTypes.func.isRequired,
 };
 
 export default Button;
