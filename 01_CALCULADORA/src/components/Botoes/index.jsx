@@ -2,9 +2,9 @@
 import PropTypes from "prop-types"; // Importe o PropTypes
 import { ButtonStyled } from "./styles";
 
-const Button = ({ valor, styles, atualizarValor }) => {
+const Button = ({ valor, styles, click }) => {
   return (
-    <ButtonStyled style={styles} onClick={() => atualizarValor(valor)}>
+    <ButtonStyled onClick={(e) => click(e.target.innerHTML)} style={styles}>
       {valor}
     </ButtonStyled>
   );
@@ -14,7 +14,7 @@ const Button = ({ valor, styles, atualizarValor }) => {
 Button.propTypes = {
   valor: PropTypes.string.isRequired,
   styles: PropTypes.object,
-  atualizarValor: PropTypes.func.isRequired,
+  click: PropTypes.func,
 };
 
 export default Button;
