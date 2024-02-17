@@ -4,20 +4,6 @@ import theme from "../../styles/Variables/Variables";
 
 export const Title = styled.h1``;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    to bottom right,
-    ${theme.colors.roxoEscuro},
-    ${theme.colors.roxoClaro}
-  );
-`;
-
 export const CorpoCalculadora = styled.div`
   height: 550px;
   width: 300px;

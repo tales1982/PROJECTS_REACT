@@ -1,4 +1,4 @@
-// theme.js
+
 const theme = {
     colors: {
       // Tons de Azul
@@ -26,7 +26,7 @@ const theme = {
       botaoEscuro: "#2f3646",
       dispay: "#2a2e37",
     },
-  };
-  
+  }; 
+
   export default theme;
   

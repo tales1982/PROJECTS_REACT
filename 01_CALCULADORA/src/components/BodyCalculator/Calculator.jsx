@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import {
-  Container,
   CorpoCalculadora,
   Display,
   Operacao,
@@ -31,7 +30,8 @@ const Calculator = () => {
       value === "+" ||
       value === "-" ||
       value === "*" ||
-      value === "/"
+      value === "/" ||
+      value === "%"
     ) {
       setOperator(value);
     } else if (value === "=") {
@@ -45,16 +45,30 @@ const Calculator = () => {
       setOperator("");
       setNum2("");
       setResult(""); // Limpa o resultado ao limpar os valores
-    } else if (value === "%") {
-      // Adicione a lógica para porcentagem, se necessário
+      // eslint-disable-next-line no-dupe-else-if
+    } else if (value === "⇐") {
+      // Remove o último caractere do número atual
+      if (operator === "") {
+        setNum((prevNum) => prevNum.slice(0, -1));
+      } else {
+        setNum2((prevNum2) => prevNum2.slice(0, -1));
+      }
+    } else if (value === ".") {
+      if (operator === "" && !num.includes(".")) {
+        setNum((prevNum) => prevNum + ".");
+      } else if (operator !== "" && !num2.includes(".")) {
+        setNum2((prevNum2) => prevNum2 + ".");
+      }
     }
   };
+  
 
   const calculateResult = () => {
     let result = 0;
     switch (operator) {
       case "+":
         result = parseFloat(num) + parseFloat(num2);
+        console.log(operator);
         break;
       case "-":
         result = parseFloat(num) - parseFloat(num2);
@@ -65,17 +79,20 @@ const Calculator = () => {
       case "/":
         result = parseFloat(num) / parseFloat(num2);
         break;
+      case "%":
+        result = (parseFloat(num2) / 100) * parseFloat(num);
+        //result = parseFloat(num) + (parseFloat(num) * parseFloat(num2)) / 100;
+        break;
       default:
         result = 0;
     }
-    return result.toString();
+    return result.toFixed(2);
   };
   return (
-    <Container>
       <CorpoCalculadora>
         <Display>
           <Operacao>
-            <Resultado>{result}</Resultado>
+            <Resultado>{result ? parseFloat(result) : "0"}</Resultado>
             <Caculo>
               {num}
               {operator}
@@ -86,6 +103,7 @@ const Calculator = () => {
         <Teclado>
           <div>
             <Button
+              
               click={() => changerNun("AC")}
               styles={{ color: theme.colors.botaoRoxo }}
               valor={"AC"}
@@ -101,11 +119,12 @@ const Calculator = () => {
               valor={"x"}
             />
             <Button
+              click={() => changerNun("⇐")}
               styles={{
                 color: theme.colors.white,
                 backgroundColor: theme.colors.botaoRoxo,
               }}
-              valor={" ⇐"}
+              valor={"⇐"}
             />
           </div>
           <div>
@@ -183,12 +202,14 @@ const Calculator = () => {
                   styles={{ color: theme.colors.white }}
                   valor={"0"}
                 />
-                <Button styles={{ color: theme.colors.white }} valor={"."} />
                 <Button
-                  click={() => changerNun("%")}
+                  click={() => changerNun(".")}
                   styles={{ color: theme.colors.white }}
-                  valor={"%"}
+                  valor={"."}
                 />
+                <Button 
+                click={() => changerNun("%")}
+                styles={{ color: theme.colors.white }} valor={"%"} />
               </div>
             </DivButao>
             <div>
@@ -205,7 +226,6 @@ const Calculator = () => {
           </DivRow>
         </Teclado>
       </CorpoCalculadora>
-    </Container>
   );
 };
 
