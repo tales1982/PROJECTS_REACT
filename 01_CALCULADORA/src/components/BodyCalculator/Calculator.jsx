@@ -88,8 +88,31 @@ const Calculator = () => {
     }
     return result.toFixed(2);
   };
+
+  const handleKeyDown = (event) => {
+    const key = event.key;
+
+    // Se a tecla pressionada for um número, operador ou "=", chama capturaValor
+    if (
+      (key >= "0" && key <= "9") ||
+      key === "+" ||
+      key === "-" ||
+      key === "*" ||
+      key === "/" ||
+      key === "%" ||
+      key === "="
+    ) {
+      changerNun(key);
+    } else if (key === "Enter") {
+      // Se a tecla Enter for pressionada, também chama changerNun com "="
+      changerNun("=");
+    } else if (key === "Backspace") {
+      // Se a tecla Backspace for pressionada, chama changerNun com "⇐"
+      changerNun("⇐");
+    }
+  };
   return (
-      <CorpoCalculadora>
+      <CorpoCalculadora tabIndex={0} onKeyDown={handleKeyDown}>
         <Display>
           <Operacao>
             <Resultado>{result ? parseFloat(result) : "0"}</Resultado>
